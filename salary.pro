@@ -32,6 +32,7 @@ HEADERS += \
 
 FORMS += \
     formpayslip.ui \
+    formquery.ui \
     mainwindow.ui
 
 # Default rules for deployment.

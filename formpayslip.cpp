@@ -26,21 +26,36 @@ FormPayslip::FormPayslip(QSqlDatabase db, QWidget *parent) :
     //Настраиваем модели
     SetupTable();
 
-    modelArticles->select();
+//    modelArticles->select();
 
     // сигнал изменения строки выделения в tableVew
-    connect(ui->tableView_articles->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
-                 SLOT(slotSelectionChange(const QItemSelection &, const QItemSelection &)));
+//    connect(ui->tableView_articles->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+//                 SLOT(slotSelectionChange(const QItemSelection &, const QItemSelection &)));
 
     // сигнал создания запроса во вкладках
-    connect(this, SIGNAL(signalFromQuery(QString)),parent, SLOT(slot_goQuery(QString)));
-    ui->tableView_articles->selectRow(0);
+//    connect(this, SIGNAL(signalFromQuery(QString)),parent, SLOT(slot_goQuery(QString)));
+    //ui->tableView_articles->selectRow(0);
 
 }
 
 FormPayslip::~FormPayslip()
 {
     delete ui;
+}
+
+void FormPayslip::slotSelectionChange(const QItemSelection &current, const QItemSelection &previous)
+{
+
+}
+
+void FormPayslip::SetupTable()
+{
+
+}
+
+void FormPayslip::Tune()
+{
+
 }
 
 void FormPayslip::on_pushButton_close_clicked()
@@ -87,3 +102,5 @@ void FormPayslip::on_pushButton_lst_clicked()
 {
 
 }
+
+
