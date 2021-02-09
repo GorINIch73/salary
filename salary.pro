@@ -21,6 +21,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mousewheelwidgetadjustmentguard.cpp \
+    qsqlquerycombomodel.cpp \
     qsqlrelationaldelegateflt.cpp
 
 HEADERS += \
@@ -28,6 +29,7 @@ HEADERS += \
     formquery.h \
     mainwindow.h \
     mousewheelwidgetadjustmentguard.h \
+    qsqlquerycombomodel.h \
     qsqlrelationaldelegateflt.h
 
 FORMS += \

@@ -23,6 +23,5 @@
         <file>pix/reload.png</file>
         <file>pix/rep.png</file>
         <file>pix/tools.png</file>
-        <file>pix/Иконки.svg</file>
     </qresource>
 </RCC>

@@ -6,181 +6,638 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>425</height>
+    <width>1059</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>20</y>
-     <width>420</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QPushButton" name="pushButton_first">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/bb.png</normaloff>:/pix/bb.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_prev">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/b.png</normaloff>:/pix/b.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_next">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/f.png</normaloff>:/pix/f.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_last">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/ff.png</normaloff>:/pix/ff.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_refr">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/reload.png</normaloff>:/pix/reload.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_add">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/add.png</normaloff>:/pix/add.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_del">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="pix.qrc">
-          <normaloff>:/pix/del.png</normaloff>:/pix/del.png</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_lst">
-      <property name="toolTip">
-       <string>Список платежей по статьям</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="pix.qrc">
-        <normaloff>:/pix/query.png</normaloff>:/pix/query.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>24</width>
-        <height>24</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Expanding</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_close">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="toolTip">
-       <string>Зактыть вкладку</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="pix.qrc">
-        <normaloff>:/pix/exit.png</normaloff>:/pix/exit.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>32</width>
-        <height>32</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton_first">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/bb.png</normaloff>:/pix/bb.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_prev">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/b.png</normaloff>:/pix/b.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_next">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/f.png</normaloff>:/pix/f.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_last">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/ff.png</normaloff>:/pix/ff.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_refr">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/reload.png</normaloff>:/pix/reload.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_add">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/add.png</normaloff>:/pix/add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_del">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="pix.qrc">
+           <normaloff>:/pix/del.png</normaloff>:/pix/del.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_lst">
+       <property name="toolTip">
+        <string>Список платежей по статьям</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="pix.qrc">
+         <normaloff>:/pix/query.png</normaloff>:/pix/query.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_close">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Зактыть вкладку</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="pix.qrc">
+         <normaloff>:/pix/exit.png</normaloff>:/pix/exit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Фильтр:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_flt_all">
+           <property name="toolTip">
+            <string>Фильтр по назначению, сумме, примечанию, дате</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_flt_clr">
+           <property name="toolTip">
+            <string>Сбросить фильтр</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pix.qrc">
+             <normaloff>:/pix/clear.png</normaloff>:/pix/clear.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>id</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_id">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Месяц:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QComboBox" name="comboBox_month">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+             <property name="currentText">
+              <string/>
+             </property>
+             <item>
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Январь</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Февраль</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Март</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Апрель</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Май</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Июнь</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Июль</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Август</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Сентябрь</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Октябрь</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ноябрь</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Декабрь</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Сотрудник:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_employee">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Должность:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox_position">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Отделение:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="comboBox_branch">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Норма часов:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Ставка:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_number_of_bets">
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="showGroupSeparator" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="maximum">
+              <double>9.999000000000001</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_clock_rate">
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="showGroupSeparator" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <double>999.990000000000009</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Отработано часов:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_hours_worked">
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="showGroupSeparator" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <double>999.990000000000009</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Оклад:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_salary">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="showGroupSeparator" stdset="0">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <double>10000000.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Расчетный оклад:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_calc_salary">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="checkBox_timesheet_found">
+             <property name="text">
+              <string>Табель</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QCheckBox" name="checkBox_employment_contract_found">
+             <property name="text">
+              <string>Трудовой договор</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QCheckBox" name="checkBox_diploma_found">
+             <property name="text">
+              <string>Диплом</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="checkBox_work_schedule_found">
+             <property name="text">
+              <string>График</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QCheckBox" name="checkBox_employment_history">
+             <property name="text">
+              <string>Трудовая книжка</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QCheckBox" name="checkBox_certificate_found">
+             <property name="text">
+              <string>Сертификат</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="plainTextEdit_note">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Примечание</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>итого:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_d_sum">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_add_ch">
+           <property name="toolTip">
+            <string>Добавить расшифровку с суммой по ПП</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pix.qrc">
+             <normaloff>:/pix/add.png</normaloff>:/pix/add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_clearC">
+           <property name="toolTip">
+            <string>Очистить контракт</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pix.qrc">
+             <normaloff>:/pix/erase.png</normaloff>:/pix/erase.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_del_ch">
+           <property name="toolTip">
+            <string>Удалить расшифровку</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pix.qrc">
+             <normaloff>:/pix/del.png</normaloff>:/pix/del.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableView" name="tableView_charges"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableView" name="tableView_payslip"/>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="pix.qrc"/>

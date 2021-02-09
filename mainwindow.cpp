@@ -62,14 +62,13 @@ void MainWindow::on_actionOpenPayslip_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
     //об авторах
-    QMessageBox::information(this,"Info","Программа ведения финансового аудита ЗП.\n\nGorINIch`2020 ver0.01\nggorinich@gmail.com");
+    QMessageBox::information(this,"Info","Программа ведения финансового аудита ЗП.\n\nGorINIch`2020 ver0.000\nggorinich@gmail.com");
 
 }
 
 void MainWindow::slot_goQuery(QString sq)
 {
     // вызов окна запроса
-    // придумать как вызвать из других окон и передать параметры!
     FormQuery *query = new FormQuery(database, sq, this);
     ui->tabWidgetMain->insertTab(0,query,tr("Запрос"));
     ui->tabWidgetMain->setCurrentIndex(0);
@@ -102,7 +101,7 @@ bool MainWindow::OpenBase()
 
     //читаем настнойки из базы
     QSqlQuery query(database);
-    if (!query.exec("SELECT organization, date_begin, date_end FROM options"))
+    if (!query.exec("SELECT organization FROM options"))
             qDebug() << "Ошибка чтения настроек: " << query.lastError().text();
      query.first();
 
