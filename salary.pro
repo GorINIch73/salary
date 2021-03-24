@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chargeseditform.cpp \
     formpayslip.cpp \
     formquery.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
     qsqlrelationaldelegateflt.cpp
 
 HEADERS += \
+    chargeseditform.h \
     formpayslip.h \
     formquery.h \
     mainwindow.h \
@@ -33,6 +35,7 @@ HEADERS += \
     qsqlrelationaldelegateflt.h
 
 FORMS += \
+    chargeseditform.ui \
     formpayslip.ui \
     formquery.ui \
     mainwindow.ui

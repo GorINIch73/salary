@@ -11,6 +11,11 @@
 
 #include "mousewheelwidgetadjustmentguard.h"
 
+#include "chargeseditform.h"
+#include <QMenu>
+#include<QVBoxLayout>
+
+
 
 FormPayslip::FormPayslip(QSqlDatabase db, QWidget *parent) :
     QWidget(parent),
@@ -75,8 +80,38 @@ FormPayslip::FormPayslip(QSqlDatabase db, QWidget *parent) :
       ui->tableView_payslip->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); // по содержимому
 
 
+      // список начислений
+      model_charges_list = new QSqlQueryModel(this);
+      model_charges_list->setQuery("SELECT id, type_of_charge_id, sum, order_id, payslip_id, verified_with_order, note FROM charges ORDER BY type_of_charge_id",base);
 
-    //создание обьектов таблиц
+      ui->tableView_charges->setModel(model_charges_list);
+      ui->tableView_charges->setSelectionBehavior(QAbstractItemView::SelectRows); // Разрешаем выделение строк
+      ui->tableView_charges->setSelectionMode(QAbstractItemView::SingleSelection); // Устанавливаем режим выделения лишь одно строки в таблице
+      ui->tableView_charges->horizontalHeader()->setStretchLastSection(true);
+      ui->tableView_charges->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); // по содержимому
+
+
+      // настройка выпадающего меню начислений
+      ui->tableView_charges->setContextMenuPolicy(Qt::CustomContextMenu);
+      m_charges_menu = new QMenu(this);
+      m_charges_popup_form = new ChargesEditForm(this);
+//      m_charges_popup_form->set_ID(id); //настройка на ID
+      QVBoxLayout *charges_layout = new QVBoxLayout;
+      charges_layout->addWidget(m_charges_popup_form);
+      m_charges_menu->setLayout(charges_layout);
+
+      connect(ui->tableView_charges, &QTableView::customContextMenuRequested, [&](const QPoint &p)
+      {
+//          m_charges_menu->popup(mapToGlobal(p));
+//          m_charges_menu->popup(mapTo(ui->tableView_charges, p));
+//          m_charges_menu->popup(ui->tableView_charges->pos());
+//            m_charges_menu->popup(mapToGlobal(p));
+//          m_charges_menu->popup(p);
+          m_charges_menu->popup(QCursor::pos());
+          qDebug() << "открылось";
+      });
+
+      //создание обьектов таблиц
 
 
 //    payslip = new QSqlRelationalTableModel(this,base);
@@ -144,12 +179,28 @@ void FormPayslip::onPayslipSelected(const QModelIndex &index)
 
     setPayslip(); // сохранить старые данные
 
-    // изменение строки  - по новому
-    getPayslip(model_payslip_list->data(model_payslip_list->index(index.row(), 0)).toInt());
+    //получить ID ведомости
+    int id = model_payslip_list->data(model_payslip_list->index(index.row(), 0)).toInt();
+    // заполнить форму данных ведомости
+    getPayslip(id);
+    // заполнить список начислений
+    getCharges(id);
 
 //    qDebug() << model_payslip_list->data(model_payslip_list->index(index.row(), 0)).toInt();
 
+
 }
+
+//void FormPayslip::onChargesSelected(const QModelIndex &index)
+//{
+//    // выделение начисления в списке
+//    // если были старые записи сохранить их
+//    // определить ID
+//    int id = model_charges_list->data(model_charges_list->index(index.row(), 0)).toInt();
+//    // загрузить новые
+
+
+//}
 
 void FormPayslip::onChenged()
 {
@@ -287,6 +338,20 @@ void FormPayslip::getPayslip(int id)
         //ui->doubleSpinBox_calc_salarysetValue(1000);
     }
 
+
+
+}
+
+void FormPayslip::getCharges(int id)
+{
+    //заполнение списка текущих начислений
+    //QSqlQuery query(base);
+
+    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges WHERE payslip_id= %1 ORDER BY type_of_charge_id").arg(id);
+//    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges ORDER BY type_of_charge_id");
+    qDebug() << "list: " << req;
+    model_charges_list->setQuery(req,base);
+    model_charges_list->query();
 
 
 }

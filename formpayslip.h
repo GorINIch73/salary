@@ -15,6 +15,10 @@
 
 #include "qsqlquerycombomodel.h"
 
+class QMenu;
+class ChargesEditForm;
+
+
 namespace Ui {
 class FormPayslip;
 }
@@ -51,6 +55,7 @@ private slots:
     void on_pushButton_lst_clicked();
 
     void onPayslipSelected(const QModelIndex &index);
+    //void onChargesSelected(const QModelIndex &index);
     void onChenged();
 
     void on_lineEdit_flt_all_textChanged(const QString &arg1);
@@ -74,12 +79,16 @@ private:
 //    QSqlRelationalDelegate *delegate;
 //    QCompleter *completer;
 
+    //выпадающее меню редактирования начислений
+    QMenu *m_charges_menu;
+    ChargesEditForm  *m_charges_popup_form;
 
     void SetupTable();
     void Tune();
     void setPayslip(); // записываем значения в базу
     void getPayslip(int id); // яитаем значения их базы
     void clearPayslip(); // очистка формы
+    void getCharges(int id); // заполнение списка начислений
 
 };
 
