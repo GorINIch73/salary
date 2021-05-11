@@ -94,7 +94,7 @@ FormPayslip::FormPayslip(QSqlDatabase db, QWidget *parent) :
       // настройка выпадающего меню начислений
       ui->tableView_charges->setContextMenuPolicy(Qt::CustomContextMenu);
       m_charges_menu = new QMenu(this);
-      m_charges_popup_form = new ChargesEditForm(this);
+      m_charges_popup_form = new ChargesEditForm(base, this);
 //      m_charges_popup_form->set_ID(id); //настройка на ID
       QVBoxLayout *charges_layout = new QVBoxLayout;
       charges_layout->addWidget(m_charges_popup_form);
@@ -107,7 +107,12 @@ FormPayslip::FormPayslip(QSqlDatabase db, QWidget *parent) :
 //          m_charges_menu->popup(ui->tableView_charges->pos());
 //            m_charges_menu->popup(mapToGlobal(p));
 //          m_charges_menu->popup(p);
-          m_charges_menu->popup(QCursor::pos());
+          // получаем текущий ID
+           int id = model_charges_list->data(model_charges_list->index(ui->tableView_charges->currentIndex().row(), 0)).toInt();
+           qDebug() <<   id;
+           m_charges_popup_form->getData(id);
+           m_charges_menu->popup(QCursor::pos());
+//          m_charges_menu->exec();
           qDebug() << "открылось";
       });
 
@@ -268,7 +273,7 @@ void FormPayslip::setPayslip()
                     squery.append(QString(" WHERE id = %1 ").arg(ui->lineEdit_id->text()));
 
 
-                    qDebug() << squery;
+                    //qDebug() << squery;
 
                     QSqlQuery query(base);
 
@@ -347,9 +352,10 @@ void FormPayslip::getCharges(int id)
     //заполнение списка текущих начислений
     //QSqlQuery query(base);
 
-    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges WHERE payslip_id= %1 ORDER BY type_of_charge_id").arg(id);
+    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges WHERE payslip_id= %1").arg(id);
+//    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges WHERE payslip_id= %1 ORDER BY type_of_charge_id").arg(id);
 //    QString req = QString("SELECT id, type_of_charge_id, sum, order_id, verified_with_order, note FROM charges ORDER BY type_of_charge_id");
-    qDebug() << "list: " << req;
+//    qDebug() << "list: " << req;
     model_charges_list->setQuery(req,base);
     model_charges_list->query();
 
@@ -395,9 +401,22 @@ void FormPayslip::on_pushButton_refr_clicked()
     model_payslip_list->setQuery(model_payslip_list->query().lastQuery(),base);
 
     //обновляем комбобоксы
-    employee_model->setQuery(employee_model->query().lastQuery(),base);;
-    position_model->setQuery(position_model->query().lastQuery(),base);;
-    branch_model->setQuery(branch_model->query().lastQuery(),base);;
+    // запоминаем текущие значения
+    QString id_e = ui->comboBox_employee->currentData().toString();
+    QString id_p = ui->comboBox_position->currentData().toString();
+    QString id_b = ui->comboBox_branch->currentData().toString();
+
+//    qDebug() << id_e << employee_model->query().lastQuery();
+//    qDebug() << id_p << position_model->query().lastQuery();
+//    qDebug() << id_b << branch_model->query().lastQuery();
+    // обновляем списки
+   employee_model->setQuery(employee_model->query().lastQuery(),base);
+   position_model->setQuery(position_model->query().lastQuery(),base);
+   branch_model->setQuery(branch_model->query().lastQuery(),base);
+    // восстанавливаем значения
+    ui->comboBox_employee->setCurrentIndex(ui->comboBox_employee->findData(id_e));
+    ui->comboBox_position->setCurrentIndex(ui->comboBox_position->findData(id_p));
+    ui->comboBox_branch->setCurrentIndex(ui->comboBox_branch->findData(id_b));
 
     //докачиваем все
     while (model_payslip_list->canFetchMore())
@@ -474,5 +493,50 @@ void FormPayslip::on_pushButton_lst_clicked()
 
 void FormPayslip::on_lineEdit_flt_all_textChanged(const QString &arg1)
 {
+
+}
+
+void FormPayslip::on_pushButton_refresh_clicked()
+{
+    // обновить список начислений
+
+    //получить ID ведомости
+    int row = ui->tableView_charges->currentIndex().row();
+    int id = model_payslip_list->data(model_payslip_list->index(ui->tableView_payslip->currentIndex().row(), 0)).toInt();
+    // заполнить список начислений
+    getCharges(id);
+
+    ui->tableView_charges->selectRow(row);
+
+
+}
+
+void FormPayslip::on_pushButton_add_ch_clicked()
+{
+    // добавление начисления
+    int id = model_payslip_list->data(model_payslip_list->index(ui->tableView_payslip->currentIndex().row(), 0)).toInt();
+    if (id>0) // если id не пустой - сомнительно!
+    {
+        QSqlQuery query(base);
+
+        QString req = QString("INSERT INTO charges (payslip_id) VALUES ('%1') ").arg(QString::number(id));
+
+        qDebug() << "add ID " << id;
+
+        if(!query.exec(req)) {
+            qDebug() << req;
+            qDebug() << "ERROR add charges: " << query.lastError().text();
+            return;
+        }
+        // обновить - вызвать кнопку не получилось ((
+        //получить ID ведомости
+        int row = ui->tableView_charges->currentIndex().row();
+        // заполнить список начислений
+        getCharges(id);
+
+        ui->tableView_charges->selectRow(row);
+
+    }
+
 
 }

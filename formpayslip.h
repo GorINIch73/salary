@@ -60,6 +60,10 @@ private slots:
 
     void on_lineEdit_flt_all_textChanged(const QString &arg1);
 
+    void on_pushButton_refresh_clicked();
+
+    void on_pushButton_add_ch_clicked();
+
 private:
     Ui::FormPayslip *ui;
 
@@ -89,6 +93,7 @@ private:
     void getPayslip(int id); // яитаем значения их базы
     void clearPayslip(); // очистка формы
     void getCharges(int id); // заполнение списка начислений
+
 
 };
 
