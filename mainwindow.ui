@@ -70,6 +70,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionOpenPayslip"/>
+   <addaction name="actionEmployees"/>
   </widget>
   <action name="actionCloseBase">
    <property name="text">
@@ -122,6 +123,14 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionEmployees">
+   <property name="text">
+    <string>Сотрудники</string>
+   </property>
+   <property name="toolTip">
+    <string>Сотрудники</string>
    </property>
   </action>
  </widget>

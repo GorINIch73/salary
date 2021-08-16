@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     chargeseditform.cpp \
+    formemployees.cpp \
     formpayslip.cpp \
     formquery.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     chargeseditform.h \
+    formemployees.h \
     formpayslip.h \
     formquery.h \
     mainwindow.h \
@@ -36,6 +38,7 @@ HEADERS += \
 
 FORMS += \
     chargeseditform.ui \
+    formemployees.ui \
     formpayslip.ui \
     formquery.ui \
     mainwindow.ui

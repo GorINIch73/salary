@@ -24,6 +24,7 @@
 
 #include "formquery.h"
 #include "formpayslip.h"
+#include "formemployees.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -406,4 +407,13 @@ void MainWindow::on_actionFile03_triggered()
     }
 }
 
+
+
+void MainWindow::on_actionEmployees_triggered()
+{
+    FormEmployees  *emp = new FormEmployees(database,this);
+    ui->tabWidgetMain->insertTab(0,emp,tr("Сотрудники"));
+    ui->tabWidgetMain->setCurrentIndex(0);
+
+}
 
